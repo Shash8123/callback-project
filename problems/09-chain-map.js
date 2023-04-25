@@ -29,8 +29,22 @@ console.log(chainMap(4, square, half));         // 8
 console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
-let chainMap = function() {
-
+let chainMap = function(n,cb1,cb2,cb3) {
+      if(cb3 === undefined && cb2 === undefined)
+      {
+        return cb1(n)
+      }  
+     else if(cb3 === undefined)
+      {
+         let res = cb1(n)
+         return cb2(res)
+      }   
+      else{
+        let res1 = cb1(n)
+        let res2 = cb2(res1)
+        return cb3(res2)
+      }
+ 
 };
 
 
